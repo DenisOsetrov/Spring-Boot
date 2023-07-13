@@ -94,20 +94,4 @@ public class MainController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
