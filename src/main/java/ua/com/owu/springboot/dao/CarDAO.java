@@ -16,5 +16,5 @@ public interface CarDAO extends JpaRepository<Car, Integer> {
 
     List<Car> findByProducer(String producer);
 
-    List<Car> findByPower(int powerCar);
+    List<Car> findByPowerCar(int powerCar);
 }

@@ -65,7 +65,7 @@ public class CarController {
             //#2
 //        return new ResponseEntity<>(carDAO.customFindCarsByPower(value), HttpStatusCode.valueOf(200));
             //#3
-            return new ResponseEntity<>(carDAO.findByPower(value), HttpStatusCode.valueOf(200));
+            return new ResponseEntity<>(carDAO.findByPowerCar(value), HttpStatusCode.valueOf(200));
       }
 
       //    get cars/producer/{value} (знайти всі по виробнику)
