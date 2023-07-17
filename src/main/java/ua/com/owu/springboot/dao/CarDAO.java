@@ -10,10 +10,11 @@ import java.util.List;
 
 public interface CarDAO extends JpaRepository<Car, Integer> {
 
+    // для пошуку за силою машини у 2 вар. - не видаляти
     @Query("select c from Car c where c.powerCar=:xxx")
     List<Car> customFindCarsByPower(@Param("xxx") int powerCar);
 
     List<Car> findByProducer(String producer);
 
-    List<Car> findByPower(int power);
+    List<Car> findByPower(int powerCar);
 }
