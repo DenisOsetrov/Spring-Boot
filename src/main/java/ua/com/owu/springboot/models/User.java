@@ -1,5 +1,5 @@
 package ua.com.owu.springboot.models;
-;
+
 import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

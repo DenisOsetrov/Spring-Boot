@@ -13,6 +13,5 @@ public class ExceptionController {
         String message = e.getFieldError().getDefaultMessage();
         System.out.println(message);
         return new ResponseEntity<>(message, HttpStatusCode.valueOf(500));
-
     }
 }
