@@ -3,6 +3,7 @@ package ua.com.owu.springboot.controllers;
 import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +15,19 @@ import ua.com.owu.springboot.services.UserService;
 import java.util.List;
 
 
-@AllArgsConstructor
+//@AllArgsConstructor   // Через Lombok @Qualifier не працює, тому видаляємо @AllArgsConstructor і створюємо конструктор самостійно + міняємо форму запису @Qualifier("one")
 @RestController             // позначення класу як контролера
 @RequestMapping(value = "/users")
 
 public class UserController {
 
+    //@Qualifier("one")
     private UserService userService;
+
+    // конструктор
+    public UserController(@Qualifier("one") UserService userService) {
+        this.userService = userService;
+    }
 
 
     @PostMapping()        // post з валідацією DIO (одне поле name)
