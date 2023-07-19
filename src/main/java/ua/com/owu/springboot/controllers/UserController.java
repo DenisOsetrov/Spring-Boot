@@ -2,7 +2,6 @@ package ua.com.owu.springboot.controllers;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,7 @@ import java.util.List;
 public class UserController {
 
     //@Qualifier("one")
-    private UserService userService;
+    private final UserService userService;
 
     // конструктор
     public UserController(@Qualifier("one") UserService userService) {
