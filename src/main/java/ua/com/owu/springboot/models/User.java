@@ -30,8 +30,15 @@ public class User {
     @JsonView({Views.Level1.class, Views.Level2.class}) // Це поле для доступу level 1,2, тому в масив {}
     private String name;
 
+    private String avatar;  // foto
+
     public User(String name) {
         this.name = name;
+    }
+
+    public User(String name, String avatar) {
+        this.name = name;
+        this.avatar = avatar;
     }
 }
 

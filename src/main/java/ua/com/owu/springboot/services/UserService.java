@@ -22,4 +22,7 @@ public interface UserService {
 
     void deleteUserById(int id);
 
+    // lesson3 - file and mail
+    void save(User user);
+
 }

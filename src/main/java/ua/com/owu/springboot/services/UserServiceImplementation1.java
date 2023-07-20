@@ -67,4 +67,10 @@ public class UserServiceImplementation1 implements UserService {
         // Видаляємо користувача
         userDAO.deleteById(id);
     }
+
+    // lesson3
+    @Override    // Ctrl + I - імплементація методів
+    public void save(User user) {
+        userDAO.save(user);
+    }
 }
