@@ -77,13 +77,7 @@ public class UserController {
         File transferDestinationFile = new File(path);
         avatar.transferTo(transferDestinationFile);
         userService.save(user);
-        return;
     }
-
-
-
-
-
 
 }
 
