@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ua.com.owu.springboot.models.User;
 import ua.com.owu.springboot.models.dto.UserDTO;
 import ua.com.owu.springboot.models.views.Views;
-import ua.com.owu.springboot.services.UserService;
+import ua.com.owu.springboot.services.user.UserService;
 
 import java.io.File;
 import java.util.List;
@@ -64,20 +64,80 @@ public class UserController {
         return ResponseEntity.ok("User with ID " + userId + " has been deleted.");
     }
 
-    // mail and file lessons
+    // lessons 3 only file save
+//    @SneakyThrows
+//    @PostMapping("/savewithavatar")
+//    public void saveWithAvatar(@RequestParam("name") String name, @RequestParam("avatar") MultipartFile avatar) {  // Значенння "avatar" і "name" - мають бути такими, як і в Постмені!
+//        User user = new User();
+//        user.setName(name);
+//        String originalFilename = avatar.getOriginalFilename(); // витягуємо ім'я файлу, а балі його зберігаємо
+//        user.setAvatar(originalFilename);  // {name:Kokos, avatar: Foto-avatar-lesson3.jpg}
+//
+//        String path = System.getProperty("user.home") + File.separator + "MySaveToPrograming" + File.separator + originalFilename;  // куди зберігати створене!
+//        File transferDestinationFile = new File(path);
+//        avatar.transferTo(transferDestinationFile);
+//        userService.save(user);
+//    }
+
+
+    // lessons 3 file/email
     @SneakyThrows
     @PostMapping("/savewithavatar")
-    public void saveWithAvatar(@RequestParam("name") String name, @RequestParam("avatar") MultipartFile avatar) {  // Значенння "avatar" і "name" - мають бути такими, як і в Постмені!
+    public void saveWithAvatar(
+            @RequestParam("name") String name,
+            @RequestParam("email") String email,
+            @RequestParam("avatar") MultipartFile avatar
+    ) {
         User user = new User();
         user.setName(name);
-        String originalFilename = avatar.getOriginalFilename(); // витягуємо ім'я файлу, а балі його зберігаємо
-        user.setAvatar(originalFilename);  // {name:Kokos, avatar: Foto-avatar-lesson3.jpg}
+        user.setEmail(email); // Додаємо параметр email до юзера
+        String originalFilename = avatar.getOriginalFilename();
+        user.setAvatar(originalFilename);
 
-        String path = System.getProperty("user.home") + File.separator + "MySaveToPrograming" + File.separator + originalFilename;  // куди зберігати створене!
+        String path = System.getProperty("user.home") + File.separator + "MySaveToPrograming" + File.separator + originalFilename;
         File transferDestinationFile = new File(path);
         avatar.transferTo(transferDestinationFile);
         userService.save(user);
     }
 
+
+
+
+    // lessons 3 email (треба логіку перекинути в Service)
+    @GetMapping("/activate/{id}")   // з MailService
+    public void activateUser (@PathVariable int id) {
+        ResponseEntity<User> userById = userService.getUserById(id);
+        User user = userById.getBody();
+        user.setActivated(true);       // Activated - поле у Юзера/ змінюємо на протилежне
+        userService.save(user);        // буде update user
+    }
+
+    @PostMapping("/saveWithEmail")
+    public void saveWithEmail(@RequestBody User user) {
+        userService.save(user);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

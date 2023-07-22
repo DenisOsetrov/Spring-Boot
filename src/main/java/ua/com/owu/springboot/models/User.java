@@ -32,6 +32,12 @@ public class User {
 
     private String avatar;  // foto
 
+    private String email;
+
+    private boolean isActivated = false;
+
+
+
     public User(String name) {
         this.name = name;
     }
@@ -39,6 +45,12 @@ public class User {
     public User(String name, String avatar) {
         this.name = name;
         this.avatar = avatar;
+    }
+
+    public User(String name, String avatar, String email) {
+        this.name = name;
+        this.avatar = avatar;
+        this.email = email;
     }
 }
 

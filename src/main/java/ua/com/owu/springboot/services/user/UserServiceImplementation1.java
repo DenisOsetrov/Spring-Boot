@@ -1,4 +1,4 @@
-package ua.com.owu.springboot.services;
+package ua.com.owu.springboot.services.user;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import ua.com.owu.springboot.dao.UserDAO;
 import ua.com.owu.springboot.models.User;
 import ua.com.owu.springboot.models.dto.UserDTO;
+import ua.com.owu.springboot.services.mail.MailService;
+import ua.com.owu.springboot.services.user.UserService;
 
 import java.util.List;
 import java.util.Optional;
@@ -68,9 +70,24 @@ public class UserServiceImplementation1 implements UserService {
         userDAO.deleteById(id);
     }
 
-    // lesson3
+
+
+    // lesson3 file and email
+private MailService mailService;
+
     @Override    // Ctrl + I - імплементація методів
     public void save(User user) {
         userDAO.save(user);
+        mailService.sentEmailToUser(user);
     }
 }
+
+
+
+
+
+
+
+
+
+

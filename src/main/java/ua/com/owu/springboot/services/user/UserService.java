@@ -1,4 +1,4 @@
-package ua.com.owu.springboot.services;
+package ua.com.owu.springboot.services.user;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
