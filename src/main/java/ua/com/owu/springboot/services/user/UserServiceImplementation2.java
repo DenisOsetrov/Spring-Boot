@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import ua.com.owu.springboot.dao.UserDAO;
 import ua.com.owu.springboot.models.User;
 import ua.com.owu.springboot.models.dto.UserDTO;
-import ua.com.owu.springboot.services.user.UserService;
+
 
 import java.util.List;
 import java.util.Optional;
