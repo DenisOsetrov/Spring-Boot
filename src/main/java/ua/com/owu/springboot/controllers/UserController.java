@@ -80,7 +80,7 @@ public class UserController {
 //    }
 
 
-    // lessons 3 file/email
+    // lessons 3 email+file
     @SneakyThrows
     @PostMapping("/savewithavatar")
     public void saveWithAvatar(
@@ -97,7 +97,7 @@ public class UserController {
         String path = System.getProperty("user.home") + File.separator + "MySaveToPrograming" + File.separator + originalFilename;
         File transferDestinationFile = new File(path);
         avatar.transferTo(transferDestinationFile);
-        userService.save(user);
+        userService.save(user, transferDestinationFile);
     }
 
 

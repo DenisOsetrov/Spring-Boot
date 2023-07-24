@@ -5,11 +5,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import ua.com.owu.springboot.dao.UserDAO;
 import ua.com.owu.springboot.models.User;
 import ua.com.owu.springboot.models.dto.UserDTO;
 
 
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -78,5 +80,10 @@ public class UserServiceImplementation2 implements UserService {
     @Override    // Ctrl + I - імплементація методів
     public void save(User user) {
         userDAO.save(user);
+    }
+
+    @Override
+    public void save(User user, File file) {
+
     }
 }
