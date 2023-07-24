@@ -5,7 +5,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 import ua.com.owu.springboot.dao.UserDAO;
 import ua.com.owu.springboot.models.User;
 import ua.com.owu.springboot.models.dto.UserDTO;
