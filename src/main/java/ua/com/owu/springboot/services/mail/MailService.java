@@ -20,7 +20,7 @@ public class MailService {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
         mimeMessageHelper.setTo(user.getEmail());
-        mimeMessageHelper.setText("<h3>Hello user" + user.getName() + "</h3>" + "to activate your account click <a href='http://localhost:8080/users/activate/" + user.getId() + "'>here</a>",true);   // Впровадження тексту/ 1 параметр html teg + text, 2- true - дозвіл на тег
+        mimeMessageHelper.setText("<h3>Hello user " + " " +user.getName() + "</h3>" + "to activate your account click <a href='http://localhost:8080/users/activate/" + user.getId() + "'>here</a>",true);   // Впровадження тексту/ 1 параметр html teg + text, 2- true - дозвіл на тег
                                  // http://localhost:8080/users/activate/ - для Постмена Гетовий запит
         mimeMessageHelper.setFrom("dvosetrov@gmail.com"); // при проблемі з сертифікатами Віндовс
         javaMailSender.send(mimeMessage);
