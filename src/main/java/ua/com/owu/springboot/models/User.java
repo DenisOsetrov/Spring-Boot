@@ -34,7 +34,7 @@ public class User {
 
     private String email;
 
-    private boolean isActivated = false;
+    private boolean isActivated = false;  // це поле для перевірки Get запиту, після натискання на URL посилання отриманого листа!
 
 
 
