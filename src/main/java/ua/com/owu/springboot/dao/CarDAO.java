@@ -1,20 +1,19 @@
 package ua.com.owu.springboot.dao;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 import ua.com.owu.springboot.models.Car;
 
 import java.util.List;
 
+@Repository
 public interface CarDAO extends JpaRepository<Car, Integer> {
 
-    // для пошуку за силою машини у 2 вар. - не видаляти
-    @Query("select c from Car c where c.powerCar=:xxx")
-    List<Car> customFindCarsByPower(@Param("xxx") int powerCar);
+    List<Car> findByYear(int year);
 
-    List<Car> findByProducer(String producer);
+    List<Car> findByBrand(String brand);
 
-    List<Car> findByPowerCar(int powerCar);
+    List<Car> findByModel(String model);
+
+    List<Car> findByPriceBetween(double minPrice, double maxPrice);
 }
