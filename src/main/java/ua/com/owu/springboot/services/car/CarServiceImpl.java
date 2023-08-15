@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ua.com.owu.springboot.dao.CarDAO;
-import ua.com.owu.springboot.models.Car;
+import ua.com.owu.springboot.models.car.Car;
 
 import java.util.List;
 import java.util.Optional;

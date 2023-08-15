@@ -1,7 +1,7 @@
 package ua.com.owu.springboot.services.car;
 
 import org.springframework.http.ResponseEntity;
-import ua.com.owu.springboot.models.Car;
+import ua.com.owu.springboot.models.car.Car;
 
 import java.util.List;
 
