@@ -1,5 +1,6 @@
 package ua.com.owu.springboot.config;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,11 +16,12 @@ import ua.com.owu.springboot.security.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 
 public class SecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
     // і тут я поплив(( буду переробляти
-    @Autowired
+
     private UserRepository userRepository;
 
     @Override
