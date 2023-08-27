@@ -24,26 +24,26 @@ public class SecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFil
 
     private UserRepository userRepository;
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests(authorizeRequests -> authorizeRequests
-                        .antMatchers("/public/**").permitAll()
-                        .antMatchers("/user/**").hasRole("BUYER")
-                        .antMatchers("/seller/**").hasRole("SELLER")
-                        .antMatchers("/manager/**").hasRole("MANAGER")
-                        .antMatchers("/admin/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
-                )
-                .formLogin(formLogin -> formLogin
-                        .loginPage("/login")
-                        .permitAll()
-                )
-                .logout(logout -> logout
-                        .logoutUrl("/logout")
-                        .permitAll()
-                );
-    }
+//    @Override
+//    public void configure(HttpSecurity http) throws Exception {
+//        http
+//                .authorizeRequests(authorizeRequests -> authorizeRequests
+//                        .antMatchers("/public/**").permitAll()
+//                        .antMatchers("/user/**").hasRole("BUYER")
+//                        .antMatchers("/seller/**").hasRole("SELLER")
+//                        .antMatchers("/manager/**").hasRole("MANAGER")
+//                        .antMatchers("/admin/**").hasRole("ADMIN")
+//                        .anyRequest().authenticated()
+//                )
+//                .formLogin(formLogin -> formLogin
+//                        .loginPage("/login")
+//                        .permitAll()
+//                )
+//                .logout(logout -> logout
+//                        .logoutUrl("/logout")
+//                        .permitAll()
+//                );
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
